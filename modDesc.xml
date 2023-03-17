@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<modDesc descVersion="72">
+    <author>scfmod</author>
+    <version>1.0.0.0</version>
+    <title>
+        <en>Distributor Specialization</en>
+    </title>
+    <description>
+        <en><![CDATA[Distributor Specialization]]></en>
+    </description>
+    <iconFilename>icon.dds</iconFilename>
+    <multiplayer supported="true" />
+
+    <extraSourceFiles>
+        <sourceFile filename="scripts/init.lua" />
+    </extraSourceFiles>
+
+    <actions>
+        <action name="DISTRIBUTOR_SELECT_INPUT" category="DISTRIBUTOR" />
+    </actions>
+
+    <inputBinding>
+        <actionBinding action="DISTRIBUTOR_SELECT_INPUT">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_u" />
+            <binding device="0_XINPUT_GAMEPAD" input="BUTTON_5 BUTTON_19" />
+        </actionBinding>
+    </inputBinding>
+
+    <l10n filenamePrefix="translations/l10n" />
+</modDesc>

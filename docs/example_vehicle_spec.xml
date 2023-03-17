@@ -1,0 +1,77 @@
+<vehicle type="...">
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <fillUnit capacity="800" unitTextOverride="$l10n_unit_literShort" fillTypes="diesel" showOnHud="false" showInShop="false" />
+                    <fillUnit unitTextOverride="$l10n_unit_literShort" showOnHud="false" showInShop="false" fillTypes="def" capacity="39" />
+
+                    <fillUnit capacity="12000" unitTextOverride="$l10n_unit_literShort" fillTypes="" showOnHud="true" showInShop="false" updateMass="false">
+                        <exactFillRootNode node="exactFillRootNode" />
+                        <autoAimTargetNode node="AimTargetNode" />
+                    </fillUnit>
+
+                    <fillUnit capacity="250" unitTextOverride="$l10n_unit_literShort" fillTypes="" showOnHud="true" showInShop="false" updateMass="false" />
+                    <fillUnit capacity="250" unitTextOverride="$l10n_unit_literShort" fillTypes="" showOnHud="true" showInShop="false" updateMass="false" />
+
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <fillVolume>
+        <fillVolumeConfigurations>
+            <fillVolumeConfiguration>
+                <volumes>
+                    <volume node="fillVolumeShape" maxDelta="2.0" maxAllowedHeapAngle="11" fillUnitIndex="3" />
+                </volumes>
+            </fillVolumeConfiguration>
+        </fillVolumeConfigurations>
+        <unloadInfos>
+            <unloadInfo>
+                <node node="unloadInfoFront" width="0.85" length="0.85" />
+                <node node="unloadInfoLeft" width="0.55" length="0.55" />
+            </unloadInfo>
+        </unloadInfos>
+    </fillVolume>
+
+    <distributor needsToBeTurnedOn="false" canDischargeToGroundAnywhere="true">
+        <processor processingSpeed="400" fillUnitIndex="3">
+            <fillTypeMappings>
+                <input fillType="STONES" name="Crush the rubble">
+                    <output fillType="GRAVEL" fillUnitIndex="4" ratio="0.8" />
+                    <output fillType="RUBBLE" fillUnitIndex="5" ratio="0.2" />
+                </input>
+                <input fillType="GRAVEL" name="Sort my gravel">
+                    <output fillType="DIRT" fillUnitIndex="4" ratio="0.35" />
+                    <output fillType="SAND" fillUnitIndex="5" ratio="0.65" />
+                </input>
+            </fillTypeMappings>
+
+            <nodes>
+                <node fillUnitIndex="4" unloadInfoIndex="1" i3d="frontDischargeNodeIndex">
+                    <activationTrigger node="activationTriggerFront" />
+                    <raycast useWorldNegYDirection="true" />
+                    <info width="0.55" length="0.85" />
+                    <effects>
+                        <effectNode effectNode="effectDischargeFront" materialType="unloading" fadeTime="0.2" alignXAxisToWorldY="true" extraDistance="0.2" />
+                        <effectNode effectClass="MorphPositionEffect" effectNode="effectDischargeBeltFront" materialType="belt" fadeTime="1" speed="0.25" scrollLength="4" scrollSpeed="1.1" />
+                        <effectNode effectNode="effectSmoke1Front" materialType="unloadingSmoke" fadeTime="0" />
+                    </effects>
+                    <dischargeStateSound template="augerBelt" pitchScale="0.7" volumeScale="1.4" fadeIn="0.2" fadeOut="1" innerRadius="1.0" outerRadius="40.0" linkNode="leftDischargeNodeIndex" />
+                </node>
+                <node fillUnitIndex="5" unloadInfoIndex="2" i3d="leftDischargeNodeIndex">
+                    <activationTrigger node="activationTriggerLeft" />
+                    <raycast useWorldNegYDirection="true" />
+                    <info width="0.55" length="0.55" />
+                    <effects>
+                        <effectNode effectNode="effectDischargeLeft" materialType="unloading" fadeTime="0.2" alignXAxisToWorldY="true" extraDistance="0.2" />
+                        <effectNode effectClass="MorphPositionEffect" effectNode="effectDischargeBeltLeft" materialType="belt" fadeTime="1" speed="0.25" scrollLength="4" scrollSpeed="1.1" />
+                        <effectNode effectNode="effectSmoke1Left" materialType="unloadingSmoke" fadeTime="0" />
+                    </effects>
+                    <dischargeStateSound template="augerBelt" pitchScale="0.7" volumeScale="1.4" fadeIn="0.2" fadeOut="1" innerRadius="1.0" outerRadius="40.0" linkNode="dischargeNodeLeft" />
+                </node>
+            </nodes>
+        </processor>
+    </distributor>
+</vehicle>

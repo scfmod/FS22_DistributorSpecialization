@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<l10n>
+    <texts>
+        <text name="DISTRIBUTOR_SELECT_INPUT" text="Select processing input" />
+        <text name="input_DISTRIBUTOR_SELECT_INPUT" text="Open input dialog" />
+        <text name="DIALOG_TITLE" text="Select process input" />
+        <text name="DIALOG_OUTPUTS" text="Outputs" />
+    </texts>
+</l10n>

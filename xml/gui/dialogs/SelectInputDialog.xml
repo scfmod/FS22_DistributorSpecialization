@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<GUI onOpen="onOpen" onClose="onClose" onCreate="onCreate">
+    <GuiElement type="empty" profile="newLayer" />
+    <GuiElement type="bitmap" profile="dialogFullscreenBg" />
+    <GuiElement type="bitmap" profile="bgVignette" />
+
+    <GuiElement type="bitmap" profile="distributor_dialog" id="dialogElement">
+        <GuiElement type="bitmap" profile="dialogHeaderDocked">
+            <GuiElement type="text" profile="dialogHeaderText" text="$l10n_DIALOG_TITLE" id="headerText" />
+        </GuiElement>
+
+        <GuiElement type="empty" profile="distributor_dialogTableHeaderWrapper">
+            <GuiElement type="bitmap" profile="distributor_dialogTableHeader" name="tableHeader" id="tableHeader" />
+            <GuiElement type="bitmap" profile="distributor_dialogTableFooter" name="tableFooter" id="tableFooter" />
+        </GuiElement>
+
+        <GuiElement type="boxLayout" id="boxLayout" profile="distributor_dialogBoxLayout">
+            <GuiElement
+                type="distributor_inputsTableElement"
+                profile="distributor_inputsTable"
+                rowTemplateName="inputRowTemplate"
+                rowBackgroundProfile="distributor_inputsTableRowBackground"
+                columnNames="image name"
+                id="inputsTable"
+                focusInit="onOpen"
+                onClick="onItemClick"
+                onSelectionChanged="onInputSelectionChanged"
+                onScroll="onTableScroll"
+            >
+                <GuiElement type="listItem" profile="distributor_inputsTableRow" name="inputRowTemplate">
+                    <GuiElement type="bitmap" profile="distributor_inputsTableRowBackground">
+                        <GuiElement type="bitmap" profile="distributor_inputsTableImageCell" name="image" onCreate="onCreateInputCellElement" />
+                        <GuiElement type="text" profile="distributor_inputsTableTextCell" name="text" onCreate="onCreateInputCellElement" />
+                        <!--
+                        <GuiElement type="empty" profile="distributor_inputsTableTextCell" name="text" onCreate="onCreateInputCellElement">
+                            <GuiElement type="text" profile="_name" />
+                            <GuiElement type="text" profile="_fillType" />
+                        </GuiElement>
+                        -->
+                    </GuiElement>
+                </GuiElement>
+            </GuiElement>
+        </GuiElement>
+
+        <GuiElement type="flowLayout" profile="distributor_dialogButtonBoxDocked">
+            <GuiElement type="button" profile="distributor_dialogButtonBack" text="$l10n_button_back" onClick="onClickBack" id="backButton" />
+            <GuiElement type="button" profile="distributor_dialogButtonOK" text="$l10n_button_select" onClick="onClickOk" id="okButton" />
+        </GuiElement>
+    </GuiElement>
+
+    <GuiElement type="bitmap" profile="distributor_sidebar">
+        <GuiElement type="bitmap" profile="distributor_logo" id="logo" />
+        <GuiElement type="text" profile="distributor_outputsText" text="$l10n_DIALOG_OUTPUTS" />
+        <GuiElement
+            type="distributor_outputsTableElement"
+            profile="distributor_outputsTable"
+            rowTemplateName="outputRowTemplate"
+            rowBackgroundProfile="distributor_outputsTableRowBackground"
+            columnNames="image name"
+            id="outputsTable"
+        >
+            <GuiElement type="listItem" profile="distributor_outputsTableRow" name="outputRowTemplate">
+                <GuiElement type="bitmap" profile="distributor_outputsTableRowBackground">
+                    <GuiElement type="bitmap" profile="distributor_outputsTableImageCell" name="image" onCreate="onCreateOutputCellElement" />
+                    <GuiElement type="text" profile="distributor_outputsTableTextCell" name="text" onCreate="onCreateOutputCellElement" />
+                    <!--
+            <GuiElement type="empty" profile="distributor_outputsTableTextCell" name="text" onCreate="onCreateOutputCellElement">
+                <GuiElement type="text" profile="_name" />
+                <GuiElement type="text" profile="_fillType" />
+            </GuiElement>
+            -->
+                </GuiElement>
+            </GuiElement>
+        </GuiElement>
+    </GuiElement>
+</GUI>

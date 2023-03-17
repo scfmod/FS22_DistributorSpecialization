@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<GUIProfiles>
+    <Presets>
+        <Preset name="colorTransparent" value="0 0 0 0" />
+        <Preset name="dialogColor" value="0 0 0 0.35" />
+        <Preset name="sidebarColor" value="0 0 0 0.35" />
+
+        <Preset name="primaryColor" value="0.0227 0.5346 0.8519 1.0" />
+        <Preset name="primaryColor_50" value="0.0227 0.5346 0.8519 0.5" />
+        <Preset name="primaryColor_35" value="0.0227 0.5346 0.8519 0.35" />
+        <Preset name="primaryColor_20" value="0.0227 0.5346 0.8519 0.2" />
+        <Preset name="primaryColor_05" value="0.0227 0.5346 0.8519 0.05" />
+    </Presets>
+
+    <Profile name="distributor_sidebar" extends="baseReference" with="anchorMiddleRight">
+        <Value name="size" value="372px 1.0" />
+        <Value name="imageColor" value="$preset_sidebarColor" />
+    </Profile>
+
+    <Profile name="distributor_dialog" extends="dialogBg">
+        <Value name="size" value="600px 800px" />
+        <Value name="imageColor" value="$preset_dialogColor" />
+
+        <Value name="hasFrame" value="true" />
+        <Value name="frameThickness" value="0px 1px 0px 1px" />
+        <Value name="frameTopColor" value="$preset_primaryColor_20" />
+        <Value name="frameBottomColor" value="$preset_primaryColor_20" />
+    </Profile>
+
+    <Profile name="distributor_dialogTableHeaderWrapper">
+        <Value name="size" value="1 1" />
+    </Profile>
+
+    <Profile name="distributor_dialogTableHeader" extends="baseReference" with="anchorTopCenter">
+        <Value name="position" value="0 -24px" />
+        <Value name="size" value="24px 24px" />
+        <Value name="imageColor" value="1 1 1 1" />
+        <Value name="imageUVs" value="204px 348px 25px 25px" />
+        <Value name="imageUVRotation" value="-90" />
+        <Value name="imageDisabledColor" value="0.4 0.4 0.4 0.1" />
+    </Profile>
+
+    <Profile name="distributor_dialogTableFooter" extends="distributor_dialogTableHeader" with="anchorBottomCenter">
+        <Value name="imageUVRotation" value="90" />
+        <Value name="position" value="0 20px" />
+    </Profile>
+
+
+    <Profile name="distributor_dialogBoxLayout" extends="baseReference" with="anchorTopLeft">
+        <Value name="imageColor" value="$preset_colorTransparent" />
+        <Value name="size" value="600px 800px" />
+        <Value name="alignmentY" value="middle" />
+    </Profile>
+
+    <Profile name="distributor_dialogContentBoxLayout" extends="baseReference" with="anchorTopLeft">
+        <Value name="size" value="600px 600px" />
+        <Value name="imageColor" value="$preset_colorTransparent" />
+        <Value name="fitFlowToElements" value="true" />
+        <Value name="flowDirection" value="vertical" />
+    </Profile>
+
+    <Profile name="distributor_inputsTable">
+        <Value name="margin" value="72px 0 0 0" />
+        <Value name="size" value="456px 640px" />
+
+        <Value name="itemsPerCol" value="7" />
+        <Value name="maxNumItems" value="16" />
+        <Value name="listItemHeight" value="88px" />
+        <Value name="listItemWidth" value="456px" />
+        <Value name="listItemSpacing" value="4px" />
+        <Value name="hasFrame" value="true" />
+        <Value name="updateChildrenOverlayState" value="false" />
+        <Value name="periodicUpdate" value="false" />
+        <Value name="handleFocus" value="true" />
+        <Value name="lateInitialization" value="true" />
+        <Value name="selectOnClick" value="true" />
+    </Profile>
+
+    <Profile name="distributor_inputsTableRow" extends="emptyPanel" with="anchorBottomLeft">
+        <Value name="size" value="456px 88px" />
+        <Value name="handleFocus" value="true" />
+    </Profile>
+
+    <Profile name="distributor_inputsTableRowBackground" extends="distributor_inputsTableRow">
+        <Value name="imageColor" value="$preset_primaryColor_05" />
+        <Value name="imageSelectedColor" value="$preset_primaryColor_35" />
+        <Value name="imageHighlightedColor" value="$preset_primaryColor_50" />
+        <Value name="imageFocusedColor" value="$preset_primaryColor_20" />
+        <Value name="imageDisabledColor" value="0 0 0 0.1" />
+    </Profile>
+
+
+    <Profile name="distributor_inputsTableCell" extends="wideButton">
+        <Value name="fitToContent" value="false" />
+        <Value name="handleFocus" value="false" />
+        <Value name="textSize" value="18px" />
+        <Value name="textUpperCase" value="false" />
+        <Value name="textBold" value="false" />
+        <Value name="textColor" value="1 1 1 0.8" />
+        <Value name="textHighlightedColor" value="1 1 1 1" />
+        <Value name="textSelectedColor" value="1 1 1 1" />
+    </Profile>
+
+
+    <Profile name="distributor_inputsTableImageCell" extends="distributor_inputsTableCell" with="anchorMiddleLeft">
+        <Value name="position" value="12px 0px" />
+        <Value name="size" value="64px 64px" />
+        <Value name="imageColor" value="1 1 1 1" />
+        <Value name="imageFocusedColor" value="1 1 1 1" />
+        <Value name="imageSelectedColor" value="1 1 1 1" />
+        <Value name="imageHighlightedColor" value="1 1 1 1" />
+        <Value name="imageUVs" value="0 0 1 1" />
+    </Profile>
+
+    <Profile name="distributor_inputsTableTextCell" extends="distributor_inputsTableCell">
+        <Value name="size" value="280px 88px" />
+        <Value name="position" value="96px 0px" />
+        <Value name="iconSize" value="0" />
+        <Value name="textMaxWidth" value="240px" />
+        <Value name="textColor" value="1 1 1 1" />
+    </Profile>
+
+    <!-- BUTTON BOX -->
+
+    <Profile name="distributor_dialogButtonBoxDocked" extends="baseReference" with="anchorBottomLeft">
+        <Value name="alignmentX" value="left" />
+        <Value name="alignmentY" value="middle" />
+        <Value name="size" value="600px 60px" />
+        <Value name="position" value="0px -60px" />
+        <Value name="imageColor" value="$preset_colorTransparent" />
+        <Value name="useFullVisibility" value="false" />
+        <Value name="autoValidateLayout" value="true" />
+    </Profile>
+
+    <Profile name="distributor_dialogButtonBack" extends="wideButton">
+        <Value name="inputAction" value="MENU_BACK" />
+        <Value name="clickSound" value="BACK" />
+    </Profile>
+
+    <Profile name="distributor_dialogButtonOK" extends="wideButton">
+        <Value name="inputAction" value="MENU_ACCEPT" />
+        <Value name="clickSound" value="CLICK" />
+    </Profile>
+
+    <!-- OUTPUTS -->
+
+    <Profile name="distributor_logo" with="anchorTopCenter">
+        <Value name="size" value="72px 72px" />
+        <Value name="imageUVs" value="0 0 1 1" />
+        <Value name="imageColor" value="1 1 1 1" />
+        <Value name="position" value="0 -64px" />
+    </Profile>
+
+    <Profile name="distributor_outputsText" extends="textDefault" with="anchorTopCenter">
+        <Value name="textSize" value="22px" />
+        <Value name="textOffset" value="0px 0px" />
+        <Value name="textAlignment" value="center" />
+        <Value name="textUpperCase" value="true" />
+        <Value name="textBold" value="false" />
+        <Value name="position" value="0 -192px" />
+        <Value name="size" value="200px 30px" />
+    </Profile>
+
+    <Profile name="distributor_outputsTable" with="anchorTopCenter">
+        <Value name="position" value="0 -242px" />
+        <Value name="size" value="300px 1.0" />
+
+        <Value name="itemsPerCol" value="16" />
+        <Value name="maxNumItems" value="16" />
+        <Value name="listItemHeight" value="64px" />
+        <Value name="listItemWidth" value="300px" />
+        <Value name="listItemSpacing" value="0.004" />
+        <Value name="hasFrame" value="true" />
+        <Value name="updateChildrenOverlayState" value="false" />
+        <Value name="periodicUpdate" value="false" />
+        <Value name="handleFocus" value="false" />
+        <Value name="lateInitialization" value="true" />
+        <Value name="selectOnClick" value="false" />
+        <Value name="ignoreMouse" value="true" />
+    </Profile>
+
+    <Profile name="distributor_outputsTableRow" extends="emptyPanel" with="anchorBottomLeft">
+        <Value name="size" value="300px 64px" />
+        <Value name="handleFocus" value="true" />
+    </Profile>
+
+    <Profile name="distributor_outputsTableRowBackground" extends="distributor_outputsTableRow">
+        <Value name="imageColor" value="1 1 1 0.01" />
+    </Profile>
+
+    <Profile name="distributor_outputsTableCell" extends="wideButton">
+        <Value name="fitToContent" value="false" />
+        <Value name="handleFocus" value="false" />
+        <Value name="textSize" value="14px" />
+        <Value name="textUpperCase" value="false" />
+        <Value name="textBold" value="false" />
+        <Value name="textColor" value="1 1 1 0.8" />
+        <Value name="textHighlightedColor" value="1 1 1 1" />
+        <Value name="textSelectedColor" value="1 1 1 1" />
+    </Profile>
+
+    <Profile name="distributor_outputsTableImageCell" extends="distributor_outputsTableCell" with="anchorMiddleLeft">
+        <Value name="position" value="12px 0px" />
+        <Value name="size" value="32px 32px" />
+        <Value name="imageColor" value="1 1 1 1" />
+        <Value name="imageFocusedColor" value="1 1 1 1" />
+        <Value name="imageSelectedColor" value="1 1 1 1" />
+        <Value name="imageHighlightedColor" value="1 1 1 1" />
+        <Value name="imageUVs" value="0 0 1 1" />
+    </Profile>
+
+    <Profile name="distributor_outputsTableTextCell" extends="distributor_outputsTableCell">
+        <Value name="position" value="64px 0px" />
+        <Value name="size" value="240px 64px" />
+        <Value name="iconSize" value="0" />
+        <Value name="textMaxWidth" value="200px" />
+        <Value name="textColor" value="1 1 1 1" />
+    </Profile>
+
+
+</GUIProfiles>
