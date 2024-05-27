@@ -10,8 +10,6 @@ Multiple inputs are supported and can be changed by player using in-game GUI. Th
 
 ![screenshot](./screenshots/screenshot_gui.png)
 
-To get started with machines you can find compatible mods created by FS Miner at [official webpage](https://www.fsminer.net/).
-
 ## Processors
 
 ### Split Processor
