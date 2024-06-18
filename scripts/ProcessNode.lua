@@ -82,6 +82,7 @@ function ProcessNode.new(index, processor, mt)
     self.processor = processor
     self.vehicle = processor.vehicle
     self.spec = self.vehicle.spec_distributor
+    self.emptySpeed = 250
 
     return self
 end
@@ -92,6 +93,7 @@ function ProcessNode:load(xmlFile, path)
     self.fillUnitIndex = xmlFile:getValue(path .. '#fillUnitIndex')
     ---@diagnostic disable-next-line: assign-type-mismatch
     self.fillUnit = self.vehicle:getFillUnitByIndex(self.fillUnitIndex)
+    self.emptySpeed = xmlFile:getValue(path .. '#emptySpeed', self.emptySpeed)
 
     if self.fillUnit == nil then
         g_debugger:error('ProcessNode:load() Failed to find vehicle fillUnit: %i', self.fillUnitIndex)
@@ -355,18 +357,17 @@ function ProcessNode:onUpdateTick(dt, isActiveForInput, isActiveForInputIgnoreSe
             self:handleFoundDischargeObject()
         elseif self.vehicle:getIsTurnedOn() then
             local fillLevel = self.vehicle:getFillUnitFillLevel(self.fillUnitIndex) or 0
-            local emptySpeed = 1
             local canDischargeToObject = self:getCanDischargeToObject() and currentDischargeState == Dischargeable.DISCHARGE_STATE_OBJECT
             local canDischargeToGround = self:getCanDischargeToGround() and currentDischargeState == Dischargeable.DISCHARGE_STATE_GROUND
             local canDischarge = canDischargeToObject or canDischargeToGround
             local allowedToDischarge = self.dischargeObject ~= nil or self:getCanDischargeToLand() and self:getCanDischargeAtPosition()
-            local isReadyToStartDischarge = fillLevel > 0 and emptySpeed > 0 and allowedToDischarge and canDischarge
+            local isReadyToStartDischarge = fillLevel > 0 and self.emptySpeed > 0 and allowedToDischarge and canDischarge
 
             self:setDischargeEffectActive(isReadyToStartDischarge)
             self:setDischargeEffectDistance(self.dischargeDistance)
 
             if allowedToDischarge then
-                local emptyLiters = math.min(fillLevel, dt)
+                local emptyLiters = math.min(fillLevel, self.emptySpeed * dt)
 
                 local dischargedLiters, minDropReached, hasMinDropFillLevel = self:discharge(emptyLiters)
                 self.dischargedLiters = dischargedLiters
@@ -1155,6 +1156,8 @@ function ProcessNode.registerXMLSchema(schema)
     schema:register(XMLValueType.BOOL, path .. '#canStartGroundDischargeAutomatically', '', true)
     schema:register(XMLValueType.BOOL, path .. '#stopDischargeOnEmpty', '', true)
     schema:register(XMLValueType.BOOL, path .. '#stopDischargeIfNotPossible', '', false)
+
+    schema:register(XMLValueType.INT, path .. '#emptySpeed', 'Empty speed in liters/second', 250)
 
     --[[
         INFO
