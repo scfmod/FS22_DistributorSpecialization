@@ -1,6 +1,12 @@
 # FS22_DistributorSpecialization
 
-![screenshot](./screenshots/screenshot_1.png)
+
+> [!IMPORTANT]
+> A new reworked version is available:
+> https://github.com/scfmod/FS22_MaterialProcessor
+
+> [!WARNING]
+> This mod is deprecated and will not receive any future updates. Migrating to the [reworked mod](https://github.com/scfmod/FS22_MaterialProcessor) is recommended.
 
 Specialization for vehicles that adds functionality for processing input fillTypes into single/multiple output fillTypes.
 
